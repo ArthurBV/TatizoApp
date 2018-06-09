@@ -1,45 +1,46 @@
-0&&Tengo mucha Lentitud en el canal, necesito una solución urgente!&&3&&10&&90&&3
--&&1. Gestión de Pruebas&&-&&-&&-
-1&&Podría por favor repetir su solicitud? &&3&&1090&&3
-2&&Podría por favor indicarme la ip Lan o Wan del servicio &&3&&1090&&3
-3&&Para responder a su solicitud debe comunicarse mas tarde&&0&&salesale&&sale
-4&&Podría confirmarme cual es el ancho de banda de su canal&&3&&1090&&3
-5&&Recuerda cuando fue la última caida de su servicio?&&3&&1090&&3
-6&&Permitame lo comunico con el área encargada&&0&&salesale&&sale
-7&&Permítame lo comunico con el ingeniero que tiene el caso&&0&&salesale&&sale
-8&&Estoy revisando la infraestructura tecnológica instalada&&2&&9010&&2
-9&&Estoy revisando en nuestro sistema de monitoreo las ultimas caidas que ha tenido el canal&&0&&030&&0
-10&&Estoy revisando la gráfica de trafico del canal&&2&&9010&&2
-11&&Estoy haciendo pruebas de rendimiento del canal &&2&&8010&&2
-12&&Estoy revisando el ancho de banda configurado en la interface del enrutador&&2&&7010&&2
-13&&Estoy verificando la configuración del ancho de banda en los equipos del backbone&&2&&6010&&2
-14&&Estoy revisando si existen errores en la interface del enrutador&&0&&030&&0
-15&&Estoy revisando la configuración de la negociación en la interface del enrutador&&0&&030&&0
-16&&Estoy verificando el trafico actual en la interface del enrutador&&2&&8010&&2
-17&&Estoy revisando los últimos casos abiertos para esta sede&&0&&030&&0
-18&&Estoy verificando la configuración de enrutamiento estático en el enrutador&&0&&030&&0
-19&&Estoy revisando las últimas caidas que ha tenido el canal en el enrutador&&0&&030&&0
-20&&Estoy verificando el último reinicio eléctrico en el router&&0&&030&&0
-21&&Estoy revisando el protocolo de entrega de ips configurado en el enrutador&&0&&030&&0
--&&2. Procurar la colaboración cliente-ayudador-grupo de trabajo&&-&&-&&
-23&&Podría por favor explicarme de manera gráfica su solicitud?&&no aplica&&no aplicano aplica&&no aplica
-24&&Si le parece, puedo compartir con usted las pruebas que estoy realizando.&&no aplica&&no aplicano aplica&&no aplica
-25&&Estoy solicitando ayopo a mis compañeros para entre todos revisar su solicitud&&no aplica&&no aplicano aplica&&no aplica
--&&3. Acordar la definición del problema&&-&&-&&-
-26&&De acuerdo con las pruebas realizadas, se observa saturación en el canal. Voy a proceder con la apertura del caso, de acuerdo?&&1&&9010&&1
-27&&Confirmo su solicitud de configuración de ruta estatica en el enrutador. Voy a proceder con la apertura del caso, de acuerdo?&&0&&030&&0
-28&&De acuerdo con las pruebas realizadas, se observa intermitencias en el canal, posiblemente por inconvenientes en la Ultima milla. Voy a proceder con la apertura del caso, de acuerdo?&&0&&030&&0
-29&&De acuerdo con las pruebas realizadas, se observa bloqueo de ips. Voy a proceder con la apertura del caso, de acuerdo?&&0&&030&&0
-30&&De acuerdo con las pruebas realizadas, se observan errores en la interface Lan. Voy a proceder con la apertura del caso, de acuerdo?&&0&&030&&0
--&&4. Ofrecer alternativas&&-&&-&&-
-31&&Puedo ofrecerle las siguientes alternativas:&&2&&9010&&2
--&&5. Solucionar o Actuar para la solución&&-&&-&&
-32&&Estoy configurando el ip_accounting solicitado&&3&&8010&&3
-33&&Le estoy enviando correo con la información del tráfico para su revisión&&3&&9010&&3
-34&&Estoy comunicandole al Service Manager su solicitud&&0&&030&&0
-35&&Estoy escalando caso para Ingeniero de Operaciones para el cambio solicitado&&0&&030&&0
-36&&Estoy reiniciando el DHCP en el enrutador&&0&&030&&0
-37&&Estoy cambiando la negociación en el enrutador&&0&&030&&0
-38&&Estoy escalando el caso a segundo nivel para revisión con el proveedor&&0&&030&&0
-39&&Usted puede crear un caso con su solicitud, estaremos informando avances&&3&&1080&&3
-40&&Usted puede enviarnos un correo electronico y nos comunicaremos con usted cuando este resuelta su solcitud&&3&&1090&&3
+ï»¿0&&Tengo mucha Lentitud en el canal, necesito una soluciÃ³n urgente!&&3&&10&&90&&3
+	&&1. GestiÃ³n de Pruebas&&	&&	&&	&&	
+8&&Estoy revisando la infraestructura tecnolÃ³gica instalada&&2&&90&&10&&2
+10&&Estoy revisando la grÃ¡fica de trafico del canal&&2&&90&&10&&2
+11&&Estoy haciendo pruebas de rendimiento del canal &&2&&80&&10&&2
+12&&Estoy revisando el ancho de banda configurado en la interface del enrutador&&2&&70&&10&&2
+16&&Estoy verificando el trafico actual en la interface del enrutador&&2&&80&&10&&2
+	&&2. Procurar la colaboraciÃ³n cliente-ayudador-grupo de trabajo&&	&&	&&	&&	
+23&&PodrÃ­a por favor explicarme de manera grÃ¡fica su solicitud?&&3&&90&&30&&3
+24&&Si le parece, puedo compartir con usted las pruebas que estoy realizando.&&3&&90&&10&&3
+	&&Estoy solicitando ayopo a mis compaÃ±eros para entre todos revisar su solicitud&&3&&90&&10&&3
+	&&3. Acordar la definiciÃ³n del problema&&	&&	&&	&&	
+25&&De acuerdo con las pruebas realizadas, se observa saturaciÃ³n en el canal. Voy a proceder con la apertura del caso, de acuerdo?&&1&&90&&10&&1
+	&&4. Ofrecer alternativas&&	&&	&&	&&	
+30&&Puedo ofrecerle las siguientes alternativas:&&2&&90&&10&&2
+	&&5. Solucionar o Actuar para la soluciÃ³n&&	&&	&&	&&	
+31&&Estoy configurando el ip_accounting solicitado&&3&&80&&10&&3
+32&&Le estoy enviando correo con la informaciÃ³n del trÃ¡fico para su revisiÃ³n&&3&&90&&10&&3
+	&&Otras Acciones&&&&&&&&
+1&&PodrÃ­a por favor repetir su solicitud? &&3&&10&&90&&3
+2&&PodrÃ­a por favor indicarme la ip Lan o Wan del servicio &&3&&10&&90&&3
+3&&Para responder a su solicitud debe comunicarse mas tarde&&0&&sale&&sale&&sale
+4&&PodrÃ­a confirmarme cual es el ancho de banda de su canal&&3&&10&&90&&3
+5&&Recuerda cuando fue la Ãºltima caida de su servicio?&&3&&10&&90&&3
+6&&Permitame lo comunico con el Ã¡rea encargada&&0&&sale&&sale&&sale
+7&&PermÃ­tame lo comunico con el ingeniero que tiene el caso&&0&&sale&&sale&&sale
+9&&Estoy revisando en nuestro sistema de monitoreo las ultimas caidas que ha tenido el canal&&0&&0&&30&&0
+13&&Estoy verificando la configuraciÃ³n del ancho de banda en los equipos del backbone&&2&&60&&10&&2
+14&&Estoy revisando si existen errores en la interface del enrutador&&0&&0&&30&&0
+15&&Estoy revisando la configuraciÃ³n de la negociaciÃ³n en la interface del enrutador&&0&&0&&30&&0
+17&&Estoy revisando los Ãºltimos casos abiertos para esta sede&&0&&0&&30&&0
+18&&Estoy verificando la configuraciÃ³n de enrutamiento estÃ¡tico en el enrutador&&0&&0&&30&&0
+19&&Estoy revisando las Ãºltimas caidas que ha tenido el canal en el enrutador&&0&&0&&30&&0
+20&&Estoy verificando el Ãºltimo reinicio elÃ©ctrico en el router&&0&&0&&30&&0
+21&&Estoy revisando el protocolo de entrega de ips configurado en el enrutador&&0&&0&&30&&0
+26&&Confirmo su solicitud de configuraciÃ³n de ruta estatica en el enrutador. Voy a proceder con la apertura del caso, de acuerdo?&&0&&0&&30&&0
+27&&De acuerdo con las pruebas realizadas, se observa intermitencias en el canal, posiblemente por inconvenientes en la Ultima milla. Voy a proceder con la apertura del caso, de acuerdo?&&0&&0&&30&&0
+28&&De acuerdo con las pruebas realizadas, se observa bloqueo de ips. Voy a proceder con la apertura del caso, de acuerdo?&&0&&0&&30&&0
+29&&De acuerdo con las pruebas realizadas, se observan errores en la interface Lan. Voy a proceder con la apertura del caso, de acuerdo?&&0&&0&&30&&0
+33&&Estoy comunicandole al Service Manager su solicitud&&0&&0&&30&&0
+34&&Estoy escalando caso para Ingeniero de Operaciones para el cambio solicitado&&0&&0&&30&&0
+35&&Estoy reiniciando el DHCP en el enrutador&&0&&0&&30&&0
+36&&Estoy cambiando la negociaciÃ³n en el enrutador&&0&&0&&30&&0
+37&&Estoy escalando el caso a segundo nivel para revisiÃ³n con el proveedor&&0&&0&&30&&0
+38&&Usted puede crear un caso con su solicitud, estaremos informando avances&&3&&10&&80&&3
+39&&Usted puede enviarnos un correo electronico y nos comunicaremos con usted cuando este resuelta su solcitud&&3&&10&&90&&3
