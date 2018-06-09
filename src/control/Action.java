@@ -9,7 +9,7 @@ package control;
  *
  * @author vanis
  */
-public class Case {
+public class Action {
 
     private int caseId;
     private int ecuA;
@@ -19,7 +19,7 @@ public class Case {
     private String pathTraining;
     private String pathProduction;
 
-    public Case() {
+    public Action() {
         this.caseId = 0;
         this.ecuA = 0;
         this.ecuB = 0;
@@ -29,7 +29,7 @@ public class Case {
         this.pathProduction = "";
     }
 
-    public Case(int caseId, int ecuA, float ecuB, int caseMin, int caseMax, String pathTraining, String pathProduction) {
+    public Action(int caseId, int ecuA, float ecuB, int caseMin, int caseMax, String pathTraining, String pathProduction) {
         this.caseId = caseId;
         this.ecuA = ecuA;
         this.ecuB = ecuB;

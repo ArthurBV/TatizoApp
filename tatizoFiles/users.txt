@@ -1,3 +1,3 @@
 admin&&admin123&&Administrador&&Ana Lucia&&Jimenez Paez&&000001
-jose&&jose123&&Ayudadortania&&tania123&&Ayudador&&Jose&&Lopez Tinjaca&&000002
+jose&&jose123&&Ayudador&&Jose&&Lopez Tinjaca&&000002
 tania&&tania123&&Ayudador&&Tania Lizeth&&Gonzales Parra&&000003

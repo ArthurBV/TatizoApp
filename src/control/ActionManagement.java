@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CaseManagement {
+public class ActionManagement {
 
     private String ruteFile;
-    private ArrayList<Case> cases;
+    private ArrayList<Action> cases;
 
-    public CaseManagement(String rute) {
+    public ActionManagement(String rute) {
         this.ruteFile = rute;
         this.cases = new ArrayList();
         this.verifyArchive();
@@ -32,13 +32,13 @@ public class CaseManagement {
             }
         } catch (IOException ex) {
             ex.printStackTrace();
-            Logger.getLogger(CaseManagement.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ActionManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public ArrayList<Case> getAll() {
+    public ArrayList<Action> getAll() {
 
-        ArrayList<Case> cases = new ArrayList();
+        ArrayList<Action> cases = new ArrayList();
         FileReader archive;
         BufferedReader br;
         String registry;
@@ -48,7 +48,7 @@ public class CaseManagement {
             br = new BufferedReader(archive);
             while ((registry = br.readLine()) != null) {
                 String[] fields = registry.split("&&");
-                Case stage = new Case(Integer.parseInt(fields[0]), Integer.parseInt(fields[1]), Float.parseFloat(fields[2]),
+                Action stage = new Action(Integer.parseInt(fields[0]), Integer.parseInt(fields[1]), Float.parseFloat(fields[2]),
                         Integer.parseInt(fields[3]), Integer.parseInt(fields[4]), fields[5], fields[6]);
                 cases.add(stage);
             }

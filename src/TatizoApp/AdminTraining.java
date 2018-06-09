@@ -25,11 +25,12 @@ import javax.swing.table.TableModel;
  */
 public class AdminTraining extends javax.swing.JFrame {
 
-    private String ruteFile;
+    private String ruteAction;
     private String ruteUser;
-    User user;
+    private String ruteReport;
     private String rutePathTraining;
-    private ArrayList<Case> cases;
+    private ArrayList<Action> cases;
+    private ArrayList<Report> reports;
     private ArrayList<Parameter> parameters;
     private int caseSelected;
     private String roleSelected;
@@ -37,9 +38,13 @@ public class AdminTraining extends javax.swing.JFrame {
     private float bCase;
     private int minCase;
     private int maxCase;
-    private DefaultTableModel model;
+    private DefaultTableModel modelAction;
+    private DefaultTableModel modelReport;
+    ActionManagement actionManage;
     ParameterManagement parametersManage;
+    ReportManagement reportManage;
     UserManagement userManage;
+    User user;
 
     /**
      * Creates new form AdminTraining
@@ -50,33 +55,37 @@ public class AdminTraining extends javax.swing.JFrame {
         this.jLabelUser.setText(userName);
         this.ruteUser = "./tatizoFiles/users.txt";
         this.userManage = new UserManagement(ruteUser);
-        this.ruteFile = "./tatizoFiles/adminCases.txt";
-        CaseManagement caseManage = new CaseManagement(ruteFile);
-        model = (DefaultTableModel) jTableActions.getModel();
+        this.ruteAction = "./tatizoFiles/adminCases.txt";
+        this.actionManage = new ActionManagement(ruteAction);
+        this.ruteReport = "./tatizoReports/reportsUsers.txt";
+        this.reportManage = new ReportManagement(ruteReport);
+        modelAction = (DefaultTableModel) jTableAction.getModel();
+        modelReport = (DefaultTableModel) jTableReport.getModel();
         this.caseSelected = 1;
         this.roleSelected = "Ayudador";
         this.aCase = 0;
         this.bCase = 0;
         this.minCase = 0;
         this.maxCase = 0;
-        this.getCase();
+        this.getAction();
+        this.fillTableReport();
         this.listenTable();
     }
 
-    private Case getCase() {
-        ArrayList<Case> cases = new ArrayList();
+    private Action getAction() {
+        ArrayList<Action> cases = new ArrayList();
         FileReader archive;
         BufferedReader br;
         String registry;
-        Case stage = null;
+        Action stage = null;
 
         try {
-            archive = new FileReader(ruteFile);
+            archive = new FileReader(ruteAction);
             br = new BufferedReader(archive);
             while ((registry = br.readLine()) != null) {
                 String[] fields = registry.split("&&");
                 if (caseSelected == Integer.parseInt(fields[0])) {
-                    stage = new Case(Integer.parseInt(fields[0]), Integer.parseInt(fields[1]), Float.parseFloat(fields[2]),
+                    stage = new Action(Integer.parseInt(fields[0]), Integer.parseInt(fields[1]), Float.parseFloat(fields[2]),
                             Integer.parseInt(fields[3]), Integer.parseInt(fields[4]), fields[5], fields[6]);
                     jTextAreaFormula.setText("Eoptimo=[" + Integer.parseInt(fields[1]) + "*Ea)/(" + Float.parseFloat(fields[2]) + "*Ec*t)]*100%, Si Eoptimo<0, Entonces Eoptimo = 0");
                     aCase = Integer.parseInt(fields[1]);
@@ -84,44 +93,57 @@ public class AdminTraining extends javax.swing.JFrame {
                     minCase = Integer.parseInt(fields[3]);
                     maxCase = Integer.parseInt(fields[3]);
                     rutePathTraining = fields[5];
-                    parametersManage = new ParameterManagement(rutePathTraining);
+                    ParameterManagement parametersManage = new ParameterManagement(rutePathTraining);
                     parameters = parametersManage.getAll(rutePathTraining);
-                    this.fillTable();
+                    this.fillTableAction();
                     break;
                 }
             }
         } catch (IOException ex) {
             ex.printStackTrace();
-            Logger.getLogger(CaseManagement.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ActionManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
         return stage;
     }
 
-    private void fillTable() {
-        model.setRowCount(0);
+    private void fillTableAction() {
+        modelAction.setRowCount(0);
         int sizeArray = parameters.size();
         String registry;
         for (int i = 0; i < sizeArray; i++) {
             registry = parameters.get(i).toString();
             String[] fields = registry.split("&&");
-            model.addRow(fields);
+            modelAction.addRow(fields);
+        }
+    }
+
+    private void fillTableReport() {
+        ReportManagement reportManage = new ReportManagement(ruteReport);
+        reports = reportManage.getAll(ruteReport);
+        modelReport.setRowCount(0);
+        int sizeArray = reports.size();
+        String registry;
+        for (int i = 0; i < sizeArray; i++) {
+            registry = reports.get(i).toString();
+            String[] fields = registry.split("&&");
+            modelReport.addRow(fields);
         }
 
     }
 
     private void listenTable() {
-        jTableActions.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        jTableAction.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
-                jTextAction.setText(jTableActions.getValueAt(jTableActions.getSelectedRow(), 1).toString());
+                jTextAction.setText(jTableAction.getValueAt(jTableAction.getSelectedRow(), 1).toString());
                 //Eayudador
-                if (jTableActions.getValueAt(jTableActions.getSelectedRow(), 3).toString().equals("sale")
-                        || jTableActions.getValueAt(jTableActions.getSelectedRow(), 2).toString().equals("no aplica")
-                        || jTableActions.getValueAt(jTableActions.getSelectedRow(), 2).toString().equals("	")) {
+                if (jTableAction.getValueAt(jTableAction.getSelectedRow(), 3).toString().equals("sale")
+                        || jTableAction.getValueAt(jTableAction.getSelectedRow(), 2).toString().equals("no aplica")
+                        || jTableAction.getValueAt(jTableAction.getSelectedRow(), 2).toString().equals("	")) {
                     jTextAreaResult.setText("Eoptimo= 0");
                 } else {
-                    int eaParameter = Integer.parseInt(jTableActions.getValueAt(jTableActions.getSelectedRow(), 2).toString());
-                    Float ecParameter = Float.parseFloat(jTableActions.getValueAt(jTableActions.getSelectedRow(), 3).toString());
-                    int tParameter = Integer.parseInt(jTableActions.getValueAt(jTableActions.getSelectedRow(), 4).toString());
+                    int eaParameter = Integer.parseInt(jTableAction.getValueAt(jTableAction.getSelectedRow(), 2).toString());
+                    Float ecParameter = Float.parseFloat(jTableAction.getValueAt(jTableAction.getSelectedRow(), 3).toString());
+                    int tParameter = Integer.parseInt(jTableAction.getValueAt(jTableAction.getSelectedRow(), 4).toString());
                     float result = (aCase * eaParameter) / (bCase * ecParameter * tParameter) * 100;
                     jTextAreaResult.setText("Eoptimo= " + result);
                 }
@@ -192,7 +214,7 @@ public class AdminTraining extends javax.swing.JFrame {
         jComboBoxCase = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableActions = new javax.swing.JTable();
+        jTableAction = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAction = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
@@ -205,7 +227,7 @@ public class AdminTraining extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableReport = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jButtonCreate = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -260,8 +282,8 @@ public class AdminTraining extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel4.setText("Escoja un escenario");
 
-        jTableActions.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jTableActions.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAction.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jTableAction.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -277,28 +299,28 @@ public class AdminTraining extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTableActions.setGridColor(new java.awt.Color(165, 216, 103));
-        jTableActions.setSelectionBackground(new java.awt.Color(0, 134, 67));
-        jScrollPane1.setViewportView(jTableActions);
-        if (jTableActions.getColumnModel().getColumnCount() > 0) {
-            jTableActions.getColumnModel().getColumn(0).setMinWidth(45);
-            jTableActions.getColumnModel().getColumn(0).setPreferredWidth(45);
-            jTableActions.getColumnModel().getColumn(0).setMaxWidth(45);
-            jTableActions.getColumnModel().getColumn(1).setMinWidth(475);
-            jTableActions.getColumnModel().getColumn(1).setPreferredWidth(475);
-            jTableActions.getColumnModel().getColumn(1).setMaxWidth(475);
-            jTableActions.getColumnModel().getColumn(2).setMinWidth(80);
-            jTableActions.getColumnModel().getColumn(2).setPreferredWidth(80);
-            jTableActions.getColumnModel().getColumn(2).setMaxWidth(80);
-            jTableActions.getColumnModel().getColumn(3).setMinWidth(50);
-            jTableActions.getColumnModel().getColumn(3).setPreferredWidth(50);
-            jTableActions.getColumnModel().getColumn(3).setMaxWidth(50);
-            jTableActions.getColumnModel().getColumn(4).setMinWidth(50);
-            jTableActions.getColumnModel().getColumn(4).setPreferredWidth(50);
-            jTableActions.getColumnModel().getColumn(4).setMaxWidth(50);
-            jTableActions.getColumnModel().getColumn(5).setMinWidth(50);
-            jTableActions.getColumnModel().getColumn(5).setPreferredWidth(50);
-            jTableActions.getColumnModel().getColumn(5).setMaxWidth(50);
+        jTableAction.setGridColor(new java.awt.Color(165, 216, 103));
+        jTableAction.setSelectionBackground(new java.awt.Color(0, 134, 67));
+        jScrollPane1.setViewportView(jTableAction);
+        if (jTableAction.getColumnModel().getColumnCount() > 0) {
+            jTableAction.getColumnModel().getColumn(0).setMinWidth(45);
+            jTableAction.getColumnModel().getColumn(0).setPreferredWidth(45);
+            jTableAction.getColumnModel().getColumn(0).setMaxWidth(45);
+            jTableAction.getColumnModel().getColumn(1).setMinWidth(475);
+            jTableAction.getColumnModel().getColumn(1).setPreferredWidth(475);
+            jTableAction.getColumnModel().getColumn(1).setMaxWidth(475);
+            jTableAction.getColumnModel().getColumn(2).setMinWidth(80);
+            jTableAction.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTableAction.getColumnModel().getColumn(2).setMaxWidth(80);
+            jTableAction.getColumnModel().getColumn(3).setMinWidth(50);
+            jTableAction.getColumnModel().getColumn(3).setPreferredWidth(50);
+            jTableAction.getColumnModel().getColumn(3).setMaxWidth(50);
+            jTableAction.getColumnModel().getColumn(4).setMinWidth(50);
+            jTableAction.getColumnModel().getColumn(4).setPreferredWidth(50);
+            jTableAction.getColumnModel().getColumn(4).setMaxWidth(50);
+            jTableAction.getColumnModel().getColumn(5).setMinWidth(50);
+            jTableAction.getColumnModel().getColumn(5).setPreferredWidth(50);
+            jTableAction.getColumnModel().getColumn(5).setMaxWidth(50);
         }
 
         jTextAction.setEditable(false);
@@ -403,7 +425,7 @@ public class AdminTraining extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -411,7 +433,7 @@ public class AdminTraining extends javax.swing.JFrame {
                 "Fecha", "Nombre ayudador", "Cliente", "Tiempo del sorpote", "% Esfuerzo"
             }
         ));
-        jScrollPane5.setViewportView(jTable1);
+        jScrollPane5.setViewportView(jTableReport);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -425,8 +447,8 @@ public class AdminTraining extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -675,7 +697,7 @@ public class AdminTraining extends javax.swing.JFrame {
 
     private void jComboBoxCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCaseActionPerformed
         caseSelected = jComboBoxCase.getSelectedIndex() + 1;
-        this.getCase();
+        this.getAction();
     }//GEN-LAST:event_jComboBoxCaseActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -734,8 +756,8 @@ public class AdminTraining extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTableActions;
+    private javax.swing.JTable jTableAction;
+    private javax.swing.JTable jTableReport;
     private javax.swing.JTextArea jTextAction;
     private javax.swing.JTextArea jTextAreaFormula;
     private javax.swing.JTextArea jTextAreaResult;
