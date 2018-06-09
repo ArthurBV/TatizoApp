@@ -1,0 +1,7 @@
+1&&22&&4.3&&25&&95&&./tatizoFiles/adminTraining/trainingParameters1.txt&&./tatizoFiles/adminProduction/productionParameters1.txt
+2&&17&&3.8&&20&&95&&./tatizoFiles/adminTraining/trainingParameters2.txt&&./tatizoFiles/adminProduction/productionParameters2.txt
+3&&13&&3.3&&16&&95&&./tatizoFiles/adminTraining/trainingParameters3.txt&&./tatizoFiles/adminProduction/productionParameters3.txt
+4&&15&&3.4&&18&&95&&./tatizoFiles/adminTraining/trainingParameters4.txt&&./tatizoFiles/adminProduction/productionParameters4.txt
+5&&13&&3.3&&16&&95&&./tatizoFiles/adminTraining/trainingParameters5.txt&&./tatizoFiles/adminProduction/productionParameters5.txt
+
+ 

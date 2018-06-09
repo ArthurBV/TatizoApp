@@ -1,0 +1,45 @@
+﻿0&&Necesito que me ayuden a configurar en el router una ruta estatica&&3&&10&&90&&3
+	&&1. Gestión de Pruebas&&	&&	&&	&&	
+1&&Podría por favor repetir su solicitud? &&3&&10&&90&&3
+2&&Podría por favor indicarme la ip Lan o Wan del servicio &&3&&10&&90&&3
+3&&Para responder a su solicitud debe comunicarse mas tarde&&sale&&sale&&sale&&sale
+4&&Podría confirmarme cual es el ancho de banda de su canal&&3&&10&&90&&3
+5&&Recuerda cuando fue la última caida de su servicio?&&3&&10&&90&&3
+6&&Permitame lo comunico con el área encargada&&sale&&sale&&sale&&sale
+7&&Permítame lo comunico con el ingeniero que tiene el caso&&sale&&sale&&sale&&sale
+8&&Estoy revisando la infraestructura tecnológica instalada&&2&&90&&10&&2
+9&&Estoy revisando en nuestro sistema de monitoreo las ultimas caidas que ha tenido el canal&&0&&0&&30&&0
+10&&Estoy revisando la gráfica de trafico del canal&&0&&0&&30&&0
+11&&Estoy haciendo pruebas de rendimiento del canal &&0&&0&&30&&0
+12&&Estoy revisando el ancho de banda configurado en la interface del enrutador&&0&&0&&30&&0
+13&&Estoy verificando la configuración del ancho de banda en los equipos del backbone&&0&&0&&30&&0
+14&&Estoy revisando si existen errores en la interface del enrutador&&0&&0&&30&&0
+15&&Estoy revisando la configuración de la negociación en la interface del enrutador&&0&&0&&30&&0
+16&&Estoy verificando el trafico actual en la interface del enrutador&&0&&0&&30&&0
+17&&Estoy revisando los últimos casos abiertos para esta sede&&0&&0&&30&&0
+18&&Estoy verificando la configuración de enrutamiento estático en el enrutador&&2&&80&&10&&2
+19&&Estoy revisando las últimas caidas que ha tenido el canal en el enrutador&&0&&0&&30&&0
+20&&Estoy verificando el último reinicio eléctrico en el router&&0&&0&&30&&0
+21&&Estoy revisando el protocolo de entrega de ips configurado en DHCP&&0&&0&&30&&0
+	&&2. Procurar la colaboración cliente-ayudador-grupo de trabajo&&	&&	&&	&&	
+23&&Podría por favor explicarme de manera gráfica su solicitud?&&no aplica&&no aplica&&no aplica&&no aplica
+24&&Si le parece, puedo compartir con usted las pruebas que estoy realizando.&&no aplica&&no aplica&&no aplica&&no aplica
+25&&Estoy solicitando ayopo a mis compañeros para entre todos revisar su solicitud&&no aplica&&no aplica&&no aplica&&no aplica
+	&&3. Acordar la definición del problema&&	&&	&&	&&	
+26&&De acuerdo con las pruebas realizadas, se observa saturación en el canal. Voy a proceder con la apertura del caso, de acuerdo?&&0&&0&&30&&0
+27&&Confirmo que solicita la configuración de ruta estatica en el enrutador. Voy a proceder con la apertura del caso, de acuerdo?&&1&&80&&10&&1
+28&&De acuerdo con las pruebas realizadas, se observa intermitencias en el canal, posiblemente por inconvenientes en la Ultima milla. Voy a proceder con la apertura del caso, de acuerdo?&&0&&0&&30&&0
+29&&De acuerdo con las pruebas realizadas, se observa bloqueo de ips. Voy a proceder con la apertura del caso, de acuerdo?&&0&&0&&30&&0
+30&&De acuerdo con las pruebas realizadas, se observa pedida de paquetes en la interface por errores en la interface Lan. Voy a proceder con la apertura del caso, de acuerdo?&&0&&0&&30&&0
+	&&4. Ofrecer alternativas&&	&&	&&	&&	
+31&&Puedo ofrecerle las siguientes alternativas:&&2&&90&&10&&2
+	&&5. Solucionar o Actuar para la solución&&	&&	&&	&&	
+32&&Estoy configurando el ip_accounting solicitado&&0&&0&&30&&0
+33&&Le estoy enviando correo con la información del tráfico para su revisión&&0&&0&&30&&0
+34&&Estoy comunicandole al Service Manager su solicitud&&0&&0&&30&&0
+35&&Estoy escalando caso a Ingeniero de Operaciones para el cambio solicitado&&3&&90&&10&&3
+36&&Estoy reiniciando el DHCP en el enrutador&&0&&0&&30&&0
+37&&Estoy cambiando la negociación en el enrutador&&0&&0&&30&&0
+38&&Estoy escalando el caso a segundo nivel para revisión con el proveedor de Ultima milla&&0&&0&&30&&0
+39&&Usted puede crear un caso con su solicitud, estaremos informando avances&&3&&10&&80&&3
+40&&Usted puede enviarnos un correo electronico y nos comunicaremos con usted cuando este resuelta su solcitud&&3&&10&&90&&3
